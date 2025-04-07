@@ -24,7 +24,7 @@ git clone git@github.com:iurii1801/containers06.git
 
 ![image](https://i.imgur.com/Lrfrnl8.png)
 
-### 2. Созданы папки `nginx/` и `mounts/site/`, а также файлы `.gitignore` и `README.md`
+### 2. Созданы папки `nginx/` и `mounts/site/`
 
 ```sh
 # Создание папки для конфигурации nginx
@@ -57,7 +57,15 @@ mounts/site/*
 
 ![image](https://i.imgur.com/gv3tnBJ.png)
 
-### 5. В директории `containers06` добавлен файл `nginx/default.conf` со следующим содержимым
+### 5. В директории `containers06` добавлен файл `nginx/default.conf`
+
+```nginx
+New-Item -Path "nginx" -Name "default.conf" -ItemType "File"
+```
+
+![image](https://i.imgur.com/rywCSNJ.png)
+
+со следующим содержимым
 
 ```sh
 server {
@@ -79,15 +87,7 @@ server {
 
 ![image](https://i.imgur.com/kJciwak.png)
 
-### 6. Создан конфиг nginx: `nginx/default.conf`
-
-```sh
-New-Item -Path "nginx" -Name "default.conf" -ItemType "File"
-```
-
-![image](https://i.imgur.com/rywCSNJ.png)
-
-### 7. Создана сеть Docker
+### 6. Создана сеть Docker
 
 ```sh
 docker network create internal
@@ -95,7 +95,7 @@ docker network create internal
 
 ![image](https://i.imgur.com/3CR0o1V.png)
 
-### 8. Создан контейнер `backend`
+### 7. Создан контейнер `backend`
 
 ```sh
 docker run -d \
@@ -115,7 +115,7 @@ docker run -d \
 
 ![image](https://i.imgur.com/pYoS04O.png)
 
-### 9. Создан контейнер `frontend`
+### 8. Создан контейнер `frontend`
 
 ```sh
 docker run -d \
@@ -138,7 +138,7 @@ docker run -d \
 
 ![image](https://i.imgur.com/KJVVmSU.png)
 
-### 10. Проверка
+### 9. Проверка
 
 - Сайт открывается по адресу `http://localhost`
 - Отображается сайт (в случае этой лабы это галерея авто)
@@ -176,4 +176,4 @@ docker run -d \
 3. [Nginx: FastCGI конфигурация](https://nginx.org/ru/docs/http/ngx_http_fastcgi_module.html)
 4. [Docker. Работа с сетями контейнеров](https://docs.docker.com/network/)
 5. [DockerHub: php:7.4-fpm](https://hub.docker.com/_/php)
-6. [DockerHub: nginx:1.23-alpine](https://hub.docker.com/_/nginx)
+6. [DockerHub: nginx:1.23-alpine](https://hub.docker.com/_/nginx) 
